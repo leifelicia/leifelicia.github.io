@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>LEIFELICIA — мангалы и печи с доставкой по России</title>
-<meta name="description" content="Сборный мангал с решёткой и подказанником и разборная печь из стали 3 мм. Розница и опт от 5 штук. Доставка в пункты выдачи Ozon по всей России.">
+<meta name="description" content="Сборный мангал с решёткой и подказанником и разборная печь из стали 3 мм. Опт по заявке. Доставка в пункты выдачи Ozon по всей России.">
 <link rel="canonical" href="https://leifelicia.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://leifelicia.github.io/">
 <meta property="og:title" content="LEIFELICIA — мангалы и печи">
-<meta property="og:description" content="Сборный мангал и разборная печь. Розница и опт от 5 штук. Доставка в пункты Ozon по России.">
+<meta property="og:description" content="Сборный мангал и разборная печь. Опт по заявке. Доставка в пункты Ozon по России.">
 <meta property="og:image" content="https://leifelicia.github.io/img/m1.jpg">
 <meta property="og:locale" content="ru_RU">
 <meta name="theme-color" content="#ffffff">
@@ -384,13 +384,17 @@
   .pick-card b { font-size: 18px; }
   .pick-card span { color: var(--muted); font-size: 13.5px; }
     .gallery .slide video { object-fit: contain; background: #fff; }
+  .opt-box { border: 1.5px solid var(--line); border-radius: var(--radius); padding: 24px 20px; max-width: 640px; margin: 0 auto; }
+  .opt-box p { color: var(--muted); }
+  .opt-box .lead-form { margin-top: 14px; }
+  .pay-note a { color: var(--accent); }
   .sticky .p small { display: block; color: var(--muted); font-size: 12px; }
   .sticky .btn { flex: 1; }
 </style>
 </head>
 <body>
 
-<div class="promo">Отправка по всей России в пункты выдачи Ozon · Опт от 5 штук</div>
+<div class="promo">Отправка по всей России в пункты выдачи Ozon</div>
 
 <header class="top">
   <div class="wrap">
@@ -421,12 +425,12 @@
         <span id="loved"></span>
       </div>
 
-      <div class="packs-title">Выберите вариант</div>
-      <div class="packs" role="radiogroup" id="packs"></div>
+      <div class="price-row"><span class="price-now" id="price-now"></span><span class="muted">+ доставка до пункта Ozon</span></div>
 
       <div class="stock">В наличии, отправка из Кирова</div>
       <button type="button" class="btn" data-open-order>Заказать</button>
-      <p class="pay-note">Доставка до пункта Ozon считается по вашему городу и оплачивается отдельно</p>
+      <p class="pay-note">Доставка считается по вашему городу и оплачивается отдельно</p>
+      <p class="pay-note"><a href="#opt">Нужно оптом для магазина или компании? Оставьте заявку</a></p>
 
       <div class="timeline">
         <div class="tl"><div class="ic">🛒</div><b>Заказ</b><span>в WhatsApp</span></div>
@@ -441,7 +445,7 @@
         <ul id="kit"></ul>
       </div>
 
-      <div class="paybox">💳 Розница: карта или счёт. Опт: только по счёту</div>
+      <div class="paybox">💳 Оплата картой или по счёту</div>
     </div>
   </div>
 
@@ -462,7 +466,6 @@
       <div class="step"><div class="n">2</div><h3>Получите сумму</h3><p>Я посчитаю доставку до пункта Ozon и пришлю одну итоговую сумму.</p></div>
       <div class="step"><div class="n">3</div><h3>Заберите в пункте Ozon</h3><p>После оплаты отправляю из Кирова. Когда заказ придёт, Ozon пришлёт уведомление.</p></div>
     </div>
-    <div class="warn">Опт от 5 штук можно собрать из мангалов и печей вместе. Оплата опта только по счёту на организацию или ИП.</div>
   </section>
 
   <!-- ======= характеристики ======= -->
@@ -477,7 +480,7 @@
     <div class="compare">
       <div class="h"></div><div class="h us">LEIFELICIA</div><div class="h them">Маркетплейс</div>
       <div class="lbl">Комиссия площадки в цене</div><div class="us">Нет</div><div class="them">Есть</div>
-      <div class="lbl">Оптовая цена от 5 штук</div><div class="us">Да</div><div class="them">Нет</div>
+      <div class="lbl">Опт для магазинов и компаний</div><div class="us">По заявке</div><div class="them">Нет</div>
       <div class="lbl">Счёт на организацию или ИП</div><div class="us">Да</div><div class="them">Редко</div>
       <div class="lbl">Вопросы продавцу</div><div class="us">Сразу в WhatsApp</div><div class="them">Через чат площадки</div>
       <div class="lbl">Где забрать</div><div class="us">Пункт Ozon</div><div class="them">Пункт площадки</div>
@@ -504,8 +507,8 @@
     <div class="final pick">
       <h2>Что выбираете?</h2>
       <div class="pick-grid">
-        <button type="button" class="pick-card" data-prod="mangal"><img src="img/m1.jpg" alt="Мангал"><b>Мангал</b><span>4&nbsp;800&nbsp;₽ · опт 3&nbsp;800&nbsp;₽</span></button>
-        <button type="button" class="pick-card" data-prod="pech"><img src="img/p1.jpg" alt="Печь"><b>Печь</b><span>3&nbsp;400&nbsp;₽ · опт 3&nbsp;100&nbsp;₽</span></button>
+        <button type="button" class="pick-card" data-prod="mangal"><img src="img/m1.jpg" alt="Мангал"><b>Мангал</b><span>4&nbsp;800&nbsp;₽</span></button>
+        <button type="button" class="pick-card" data-prod="pech"><img src="img/p1.jpg" alt="Печь"><b>Печь</b><span>3&nbsp;400&nbsp;₽</span></button>
       </div>
     </div>
   </section>
@@ -521,6 +524,24 @@
       <h2>Остались вопросы?</h2>
       <p>Напишите в WhatsApp, отвечу и посчитаю доставку до вашего города.</p>
       <a class="btn btn-wa" href="https://wa.me/79539493347" target="_blank" rel="noopener">Написать в WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- ======= опт ======= -->
+  <section id="opt" style="padding-top:8px">
+    <div class="opt-box">
+      <h2>Опт для магазинов и компаний</h2>
+      <p>От 5 штук, мангалы и печи можно в одном заказе. Оптовые цены сообщаю по заявке. Оплата только по безналичному счёту на организацию или ИП.</p>
+      <form class="lead-form" id="opt-form" novalidate>
+        <label>Организация или ИП<input name="org" required maxlength="120" placeholder="Например, ИП Иванов"></label>
+        <label>Что нужно<select name="what"><option>Мангалы</option><option>Печи</option><option>Мангалы и печи</option></select></label>
+        <label>Сколько штук<input name="qty" type="number" inputmode="numeric" min="5" value="5" required></label>
+        <label>Город доставки<input name="city" required maxlength="80"></label>
+        <label>Ваше имя<input name="name" autocomplete="given-name" required maxlength="60"></label>
+        <p class="form-msg err" hidden></p>
+        <button class="btn btn-wa" type="submit">Отправить заявку в WhatsApp</button>
+        <p class="consent">Откроется WhatsApp с готовой заявкой. Я пришлю оптовые цены и счёт. Нажимая кнопку, вы соглашаетесь с <a href="privacy/">политикой обработки персональных данных</a>.</p>
+      </form>
     </div>
   </section>
 </main>
@@ -591,7 +612,7 @@ const P = {
     sub: 'Толстый металл, собирается без инструментов, ножки снимаются. Жарите шашлык, ставите казан и решётку для гриля одновременно.',
     rating: '4,9 · 1 241 отзыв на WB и 1 088 на Ozon',
     loved: '<b>1 200 покупателей</b> на WB поставили 5 звёзд',
-    retail: 4800, opt: 3800,
+    retail: 4800,
     imgs: ['m1','m2','m3','m4','m5','m6','m7'],
     kit: [['🔥','Мангал','на 11 шампуров'],['🥩','Решётка','для гриля'],['🍲','Подказанник','под казан']],
     checks: ['Толстый металл, при нагреве не ведёт', 'Решётка для гриля и подставка под казан на 6, 8, 10 л', 'Собирается и разбирается без инструментов, ножки снимаются'],
@@ -622,7 +643,7 @@ const P = {
     sub: 'Собирается за пару минут без сварки и болтов. В разобранном виде помещается в коробку 40×30×10 см. Подходит для отопления и готовки.',
     rating: '4,9 · 45 оценок на Wildberries',
     loved: '<b>41 покупатель</b> на WB поставил 5 звёзд',
-    retail: 3400, opt: 3100,
+    retail: 3400,
     imgs: ['p1','p2','p3','p4','p5','p6'],
     video: 'pech-sborka',
     checks: ['Сталь 3 мм, покупатели замеряли линейкой', 'Детали сходятся плотно, без зазоров', 'Сверху можно поставить чайник или сковороду'],
@@ -650,12 +671,12 @@ const P = {
 };
 const FAQ_COMMON = [
   ['Как работает доставка?', 'Отправляю через Ozon Доставку из Кирова. Заказ приходит в пункт выдачи Ozon в вашем городе. Стоимость доставки называю до оплаты.'],
-  ['Как оплатить?', 'Розница: картой или по счёту. Опт от 5 штук: только по счёту на организацию или ИП.'],
-  ['Можно собрать опт из мангалов и печей?', 'Да. Оптовая цена действует от 5 штук, их можно набрать вместе.'],
+  ['Как оплатить?', 'Картой или по счёту.'],
+  ['Продаёте оптом?', 'Да, магазинам и компаниям от 5 штук, мангалы и печи можно в одном заказе. Цены по запросу, оплата только по счёту на организацию или ИП. Заявку можно оставить <a href="#opt">в конце страницы</a>.'],
   ['Можно вернуть товар?', 'Да. Товар без брака можно вернуть в течение 7 дней после получения, если сохранены его вид и упаковка. Если пришёл брак, замена или возврат денег. Подробно на странице <a href="usloviya/">условий продажи</a>.']
 ];
 
-let cur = 'mangal', pack = 'retail', qty = 1;
+let cur = 'mangal', qty = 1;
 const $ = s => document.querySelector(s);
 
 function render() {
@@ -670,9 +691,7 @@ function render() {
   $('#h1').textContent = p.h1;
   $('#sub').textContent = p.sub;
   $('#loved').innerHTML = p.loved;
-  $('#packs').innerHTML = `
-    <label class="pack"><input type="radio" name="pack" value="retail" ${pack==='retail'?'checked':''}><span class="rows"><span class="row"><span class="nm">1 штука<span class="ds">розница</span></span><span class="pr">${fmt(p.retail)}</span></span></span></label>
-    <label class="pack"><span class="flag">Опт</span><input type="radio" name="pack" value="opt" ${pack==='opt'?'checked':''}><span class="rows"><span class="row"><span class="nm">От 5 штук<span class="ds">цена за штуку, оплата по счёту</span></span><span class="pr">${fmt(p.opt)}</span></span></span></label>`;
+  $('#price-now').textContent = fmt(p.retail);
   $('#kit-box').hidden = !p.kit;
   if (p.kit) $('#kit').innerHTML = p.kit.map(k => `<li><span>${k[0]}</span><b>${k[1]}</b><small>${k[2]}</small></li>`).join('');
   $('#checks').innerHTML = p.checks.map(c => `<li>${c}</li>`).join('');
@@ -687,28 +706,27 @@ function render() {
   $('#st-name').textContent = p.short;
   updatePrice();
 }
-function price() { const p = P[cur]; return pack === 'opt' ? p.opt : p.retail; }
+function price() { return P[cur].retail; }
 function updatePrice() {
   const p = P[cur];
   $('#st-price').textContent = fmt(price());
   $('#li-img').src = `img/${p.imgs[0]}.jpg`;
-  $('#li-name').textContent = p.name + (pack === 'opt' ? ', опт' : '');
+  $('#li-name').textContent = p.name;
   $('#qty').textContent = qty;
   $('#li-sum').textContent = fmt(price() * qty);
   $('#t-goods').textContent = fmt(price() * qty);
-  $('#li-hint').textContent = pack === 'opt' ? `Опт от 5 штук: ${fmt(p.opt)} за штуку, оплата по счёту` : `От 5 штук цена ${fmt(p.opt)} за штуку`;
-  $('#pay').innerHTML = pack === 'opt' ? '<option>По счёту на организацию или ИП</option>' : '<option>Картой</option><option>По счёту</option>';
+  $('#li-hint').innerHTML = 'Нужно 5 штук и больше для магазина или компании? <a href="#opt" data-close-go>Заявка на опт</a>';
+  $('#pay').innerHTML = '<option>Картой</option><option>По счёту</option>';
 }
 function setProd(id, scroll) {
   if (!P[id]) return;
-  cur = id; qty = pack === 'opt' ? 5 : 1;
+  cur = id; qty = 1;
   history.replaceState(null, '', '#' + id);
   render();
   if (scroll) document.querySelector('.switch').scrollIntoView({ behavior: 'smooth' });
 }
 document.querySelectorAll('[data-prod]').forEach(b => b.addEventListener('click', () => setProd(b.dataset.prod, b.classList.contains('pick-card'))));
 document.addEventListener('change', e => {
-  if (e.target.name === 'pack') { pack = e.target.value; qty = pack === 'opt' ? Math.max(qty, 5) : 1; updatePrice(); }
 });
 
 // галерея
@@ -744,8 +762,7 @@ document.querySelectorAll('[data-open-order]').forEach(b => b.addEventListener('
 dlg.querySelector('[data-close]').onclick = () => dlg.close();
 dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
 dlg.querySelectorAll('[data-q]').forEach(b => b.addEventListener('click', () => {
-  qty = Math.max(pack === 'opt' ? 5 : 1, Math.min(999, qty + +b.dataset.q));
-  if (pack === 'retail' && qty >= 5) { pack = 'opt'; document.querySelector('input[name=pack][value=opt]').checked = true; }
+  qty = Math.max(1, Math.min(4, qty + +b.dataset.q));
   updatePrice();
 }));
 $('#lead-form').addEventListener('submit', e => {
@@ -755,9 +772,22 @@ $('#lead-form').addEventListener('submit', e => {
   if (!name || !city) { msg.hidden = false; msg.textContent = 'Напишите имя и город'; return; }
   msg.hidden = true;
   const p = P[cur];
-  const text = `Здравствуйте! Хочу заказать: ${p.short.toLowerCase()}, ${qty} шт (${pack === 'opt' ? 'опт' : 'розница'}, ${fmt(price())} за шт).\nГород: ${city}\nОплата: ${f.pay.value}\nИмя: ${name}`;
+  const text = `Здравствуйте! Хочу заказать: ${p.short.toLowerCase()}, ${qty} шт (${fmt(price())} за шт).\nГород: ${city}\nОплата: ${f.pay.value}\nИмя: ${name}`;
   window.open(`https://wa.me/${WA}?text=${encodeURIComponent(text)}`, '_blank');
 });
+
+// заявка на опт
+$('#opt-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target, msg = f.querySelector('.form-msg');
+  const org = f.org.value.trim(), city = f.city.value.trim(), name = f.name.value.trim(), q = parseInt(f.qty.value, 10);
+  if (!org || !city || !name) { msg.hidden = false; msg.textContent = 'Заполните организацию, город и имя'; return; }
+  if (!(q >= 5)) { msg.hidden = false; msg.textContent = 'Опт от 5 штук'; return; }
+  msg.hidden = true;
+  const text = `Здравствуйте! Заявка на опт.\nОрганизация: ${org}\nТовар: ${f.what.value}, ${q} шт\nГород: ${city}\nИмя: ${name}\nПришлите, пожалуйста, оптовые цены.`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(text)}`, '_blank');
+});
+document.addEventListener('click', e => { if (e.target.closest('[data-close-go]')) dlg.close(); });
 
 // липкая панель прячется, когда видна основная кнопка
 const sticky = $('#sticky');
