@@ -383,8 +383,7 @@
   .pick-card img { width: 100%; aspect-ratio: 1/1; object-fit: contain; }
   .pick-card b { font-size: 18px; }
   .pick-card span { color: var(--muted); font-size: 13.5px; }
-  .video-box.sq { max-width: 560px; }
-  .video-box.sq video { aspect-ratio: 1 / 1; }
+    .gallery .slide video { object-fit: contain; background: #fff; }
   .sticky .p small { display: block; color: var(--muted); font-size: 12px; }
   .sticky .btn { flex: 1; }
 </style>
@@ -511,15 +510,6 @@
     </div>
   </section>
 
-  <!-- ======= видео печи ======= -->
-  <section style="padding-top:8px">
-    <h2 class="center">Как собирается печь</h2>
-    <p class="media-sub">Шесть листов стали соединяются замками, без болтов и сварки.</p>
-    <div class="video-box sq">
-      <video src="video/pech-sborka.mp4" poster="video/pech-sborka.jpg" controls muted playsinline preload="none"></video>
-    </div>
-  </section>
-
   <!-- ======= FAQ ======= -->
   <section style="padding-top:8px">
     <h2 class="center">Вопросы</h2>
@@ -633,6 +623,7 @@ const P = {
     loved: '<b>41 покупатель</b> на WB поставил 5 звёзд',
     retail: 3400, opt: 3100,
     imgs: ['p1','p2','p3','p4','p5','p6'],
+    video: 'pech-sborka',
     checks: ['Сталь 3 мм, покупатели замеряли линейкой', 'Детали сходятся плотно, без зазоров', 'Сверху можно поставить чайник или сковороду'],
     specs: [['3 мм','толщина стали'],['13 кг','вес'],['41×25×36','см размер'],['76 мм','диаметр трубы']],
     score: '4,9', count: '45 оценок на Wildberries',
@@ -669,8 +660,10 @@ const $ = s => document.querySelector(s);
 function render() {
   const p = P[cur];
   document.querySelectorAll('[data-prod]').forEach(b => b.setAttribute('aria-selected', b.dataset.prod === cur));
-  $('#slides').innerHTML = p.imgs.map((s,i) => `<div class="slide"><img src="img/${s}.jpg" alt="${p.short}" ${i?'loading="lazy"':'fetchpriority="high"'}></div>`).join('');
-  $('#thumbs').innerHTML = p.imgs.map((s,i) => `<button type="button" ${i?'':'aria-current="true"'}><img src="img/${s}.jpg" alt=""></button>`).join('');
+  $('#slides').innerHTML = p.imgs.map((s,i) => `<div class="slide"><img src="img/${s}.jpg" alt="${p.short}" ${i?'loading="lazy"':'fetchpriority="high"'}></div>`).join('')
+    + (p.video ? `<div class="slide"><video src="video/${p.video}.mp4" poster="video/${p.video}.jpg" muted loop playsinline controls preload="none"></video></div>` : '');
+  $('#thumbs').innerHTML = p.imgs.map((s,i) => `<button type="button" ${i?'':'aria-current="true"'}><img src="img/${s}.jpg" alt=""></button>`).join('')
+    + (p.video ? `<button type="button" class="play"><img src="video/${p.video}.jpg" alt="Видео сборки"></button>` : '');
   $('#slides').scrollLeft = 0;
   $('#rating-line').textContent = p.rating;
   $('#h1').textContent = p.h1;
@@ -726,6 +719,7 @@ $('#thumbs').addEventListener('click', e => {
 $('#slides').addEventListener('scroll', () => {
   const m = $('#slides'); const i = Math.round(m.scrollLeft / m.clientWidth);
   [...$('#thumbs').children].forEach((b,j) => b.setAttribute('aria-current', i === j));
+  document.querySelectorAll('#slides video').forEach(v => { const on = v.parentNode === m.children[i]; if (on && v.paused) v.play().catch(()=>{}); if (!on && !v.paused) v.pause(); });
 }, { passive: true });
 
 // лайтбокс
