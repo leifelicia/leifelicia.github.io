@@ -383,6 +383,8 @@
   .pick-card img { width: 100%; aspect-ratio: 1/1; object-fit: contain; }
   .pick-card b { font-size: 18px; }
   .pick-card span { color: var(--muted); font-size: 13.5px; }
+  .video-box.sq { max-width: 560px; }
+  .video-box.sq video { aspect-ratio: 1 / 1; }
   .sticky .p small { display: block; color: var(--muted); font-size: 12px; }
   .sticky .btn { flex: 1; }
 </style>
@@ -447,7 +449,7 @@
   <!-- ======= производство ======= -->
   <section style="padding-top:8px">
     <h2 class="center">Наше производство</h2>
-    <p class="media-sub">Лазерная резка, гибка, сварка, готовые мангалы. В конце 3D сборка печи.</p>
+    <p class="media-sub">Лазерная резка, гибка, сварка, готовые мангалы.</p>
     <div class="video-box">
       <video src="video/proizvodstvo.mp4" poster="video/poster.jpg" controls muted playsinline preload="none"></video>
     </div>
@@ -506,6 +508,15 @@
         <button type="button" class="pick-card" data-prod="mangal"><img src="img/m1.jpg" alt="Мангал"><b>Мангал</b><span>4&nbsp;800&nbsp;₽ · опт 3&nbsp;800&nbsp;₽</span></button>
         <button type="button" class="pick-card" data-prod="pech"><img src="img/p1.jpg" alt="Печь"><b>Печь</b><span>3&nbsp;400&nbsp;₽ · опт 3&nbsp;100&nbsp;₽</span></button>
       </div>
+    </div>
+  </section>
+
+  <!-- ======= видео печи ======= -->
+  <section style="padding-top:8px">
+    <h2 class="center">Как собирается печь</h2>
+    <p class="media-sub">Шесть листов стали соединяются замками, без болтов и сварки.</p>
+    <div class="video-box sq">
+      <video src="video/pech-sborka.mp4" poster="video/pech-sborka.jpg" controls muted playsinline preload="none"></video>
     </div>
   </section>
 
