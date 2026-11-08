@@ -335,6 +335,8 @@
   }
   .lead-form input:focus, .lead-form select:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent); }
   .consent { font-size: 12px; color: var(--muted); margin: 0; }
+  .lead-form label.agree { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; font-size: 13px; }
+  .lead-form label.agree input { width: 18px; height: 18px; margin: 1px 0 0; flex: none; padding: 0; }
   .form-msg { font-size: 14px; margin: 0; }
   .form-msg.err { color: #b3261e; }
   .done { text-align: center; display: grid; gap: 12px; padding: 20px 0; }
@@ -538,9 +540,10 @@
         <label>Сколько штук<input name="qty" type="number" inputmode="numeric" min="5" value="5" required></label>
         <label>Город доставки<input name="city" required maxlength="80"></label>
         <label>Ваше имя<input name="name" autocomplete="given-name" required maxlength="60"></label>
+        <label class="agree"><input type="checkbox" name="agree" required> <span>Даю <a href="soglasie/">согласие на обработку персональных данных</a></span></label>
         <p class="form-msg err" hidden></p>
         <button class="btn btn-wa" type="submit">Отправить заявку в WhatsApp</button>
-        <p class="consent">Откроется WhatsApp с готовой заявкой. Я пришлю оптовые цены и счёт. Нажимая кнопку, вы соглашаетесь с <a href="privacy/">политикой обработки персональных данных</a>.</p>
+        <p class="consent">Откроется WhatsApp с готовой заявкой. Я пришлю оптовые цены и счёт. <a href="privacy/">Политика обработки персональных данных</a>.</p>
       </form>
     </div>
   </section>
@@ -553,7 +556,7 @@
     <p>Адрес регистрации: Чеченская Республика, г. Грозный · Телефон и WhatsApp: +7 953 949-33-47</p>
     <p>Производство: Россия. Цены в рублях, НДС не облагается.</p>
     <p><a href="zakaz/">Как заказать</a> · <a href="dostavka/">Доставка</a> · <a href="oplata/">Оплата</a> · <a href="vozvrat/">Возврат</a> · <a href="kontakty/">Контакты</a></p>
-    <p><a href="usloviya/">Условия продажи и возврата</a> · <a href="privacy/">Политика обработки персональных данных</a></p>
+    <p><a href="usloviya/">Условия продажи и возврата</a> · <a href="privacy/">Политика обработки персональных данных</a> · <a href="soglasie/">Согласие на обработку данных</a></p>
   </div>
 </footer>
 
@@ -584,9 +587,10 @@
         <label>Ваше имя<input name="name" autocomplete="given-name" required maxlength="60"></label>
         <label>Город доставки<input name="city" autocomplete="address-level2" required maxlength="80" placeholder="Например, Казань"></label>
         <label>Оплата<select name="pay" id="pay"></select></label>
+        <label class="agree"><input type="checkbox" name="agree" required> <span>Даю <a href="soglasie/">согласие на обработку персональных данных</a></span></label>
         <p class="form-msg err" hidden></p>
         <button class="btn btn-wa" type="submit">Отправить заказ в WhatsApp</button>
-        <p class="consent">Откроется WhatsApp с готовым сообщением. Я отвечу и пришлю итоговую сумму с доставкой. Нажимая кнопку, вы соглашаетесь с <a href="privacy/">политикой обработки персональных данных</a> и <a href="usloviya/">условиями продажи</a>.</p>
+        <p class="consent">Откроется WhatsApp с готовым сообщением. Я отвечу и пришлю итоговую сумму с доставкой. Отправляя заказ, вы принимаете <a href="usloviya/">условия продажи</a> (публичная оферта). <a href="privacy/">Политика обработки персональных данных</a>.</p>
       </form>
     </div>
   </div>
@@ -770,6 +774,7 @@ $('#lead-form').addEventListener('submit', e => {
   const f = e.target, msg = f.querySelector('.form-msg');
   const name = f.name.value.trim(), city = f.city.value.trim();
   if (!name || !city) { msg.hidden = false; msg.textContent = 'Напишите имя и город'; return; }
+  if (!f.agree.checked) { msg.hidden = false; msg.textContent = 'Отметьте согласие на обработку персональных данных'; return; }
   msg.hidden = true;
   const p = P[cur];
   const text = `Здравствуйте! Хочу заказать: ${p.short.toLowerCase()}, ${qty} шт (${fmt(price())} за шт).\nГород: ${city}\nОплата: ${f.pay.value}\nИмя: ${name}`;
@@ -783,6 +788,7 @@ $('#opt-form').addEventListener('submit', e => {
   const org = f.org.value.trim(), city = f.city.value.trim(), name = f.name.value.trim(), q = parseInt(f.qty.value, 10);
   if (!org || !city || !name) { msg.hidden = false; msg.textContent = 'Заполните организацию, город и имя'; return; }
   if (!(q >= 5)) { msg.hidden = false; msg.textContent = 'Опт от 5 штук'; return; }
+  if (!f.agree.checked) { msg.hidden = false; msg.textContent = 'Отметьте согласие на обработку персональных данных'; return; }
   msg.hidden = true;
   const text = `Здравствуйте! Заявка на опт.\nОрганизация: ${org}\nТовар: ${f.what.value}, ${q} шт\nГород: ${city}\nИмя: ${name}\nПришлите, пожалуйста, оптовые цены.`;
   window.open(`https://wa.me/${WA}?text=${encodeURIComponent(text)}`, '_blank');
